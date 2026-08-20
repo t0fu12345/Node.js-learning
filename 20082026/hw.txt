@@ -1,0 +1,41 @@
+Câu 1
+http://localhost:3000/users?username=nguyenvana&role=admin&active=true
+key - value mà backend sẽ đọc là
+username - nguyenvana
+role - admin
+active - true
+
+Câu 2
+http://localhost:3000/products?category=laptop&price_min=15000000&sort=price_desc&page=3
+Backend sẽ thực hiện tìm ở database, bảng products các sản phẩm thuộc trang thứ 3 của category laptop, giá tối thiểu price_min là 15000000 và sắp xếp giảm dần theo giá
+
+Câu 3
+http://localhost:3000/search?keyword=hoc%20lap%20trinh&tags=javascript&tags=nodejs
+Object
+{
+    keyword:"hoc lap trinh",
+    tags:["javascript","nodejs"]
+}
+
+Câu 4
+http://localhost:3000/orders?status=completed&payment=credit_card
+{
+    status:"completed",
+    payment:"credit_card"
+}
+
+Câu 5
+http://localhost:3000/reports?start_date=2024-01-01&end_date=2024-01-31&limit=50
+{
+    start_date: 2024-01-01,
+    end_date: 2024-01-31,
+    limit: 50
+}
+
+Câu 6
+http://localhost:3000/hotels?city=Ha%20Noi&has_pool=true&stars=4&stars=5
+{
+    city:"Ha Noi",
+    has_pool: true,
+    stars: [4,5]
+}
