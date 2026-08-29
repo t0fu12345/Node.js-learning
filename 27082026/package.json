@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bai1.js",
+  "scripts": {
+    "start": "node example/bai1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
