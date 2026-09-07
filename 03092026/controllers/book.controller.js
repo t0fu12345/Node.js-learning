@@ -1,7 +1,7 @@
-const AllBooksView = require('./views/book.allbooks-view.js');
-const BookDetailView = require('./views/book.bookdetail-view.js');
-const CreateFormView = require('./views/book.createform-view.js');
-const EditFormView = require('./views/book.editform-view.js');
+const AllBooksView = require('../views/book.allbooks-view.js');
+const BookDetailView = require('../views/book.bookdetail-view.js');
+const CreateFormView = require('../views/book.CreateForm-view.js');
+const EditFormView = require('../views/book.editform-view.js');
 
 let books = [
     { id: 1, title: 'Node.js cơ bản', author: 'Nguyễn Văn A', price: 50000, year: 2022 },
