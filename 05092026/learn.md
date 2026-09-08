@@ -66,3 +66,21 @@ Xóa sách
     body {
         _id (chỉ cần id là đủ để xóa)
     }
+
+
+Phân biệt
+req.params 
+    vd http://localhost:3000/api/hotels/5 5 là params
+    chỉ đích danh, vd như id
+req.query
+    vd http://localhost:3000/api/hotels?city=Hanoi&star=5 phần sau ? là city=Hanoi&star=5 là query
+    lọc, tìm kiếm, sắp xếp...
+req.body
+    vd http://localhost:3000/api/hotels body là { city, star }
+    thg dùng cho POST/PUT
+    dc đóng gói trong thân của http req
+
+
+find() và filter()
+    find là để tìm duy nhất 1 đối tượng
+    filter trả về 1 mảng
