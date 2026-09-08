@@ -4,7 +4,7 @@ const { connectDB } = require('./db');
 class NoteModel {
     async getCollection() {
         const db = await connectDB();
-        return db.collection('users');
+        return db.collection('note');
     }
 
     async getAll() {
