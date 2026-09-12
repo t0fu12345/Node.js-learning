@@ -15,8 +15,6 @@ module.exports = (note) => {
                         <option value="private" ${note.status === 'private' ? 'selected' : ''}>Riêng tư</option>
                     </select>
                 </label><br><br>
-                <input type="hidden" name="created_at" value="${note.created_at || ''}">
-                <input type="hidden" name="updated_at" value="${new Date().toISOString()}">
                 <button type="submit">Cập nhật</button>
             </form>
             <br>

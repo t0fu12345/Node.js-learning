@@ -15,8 +15,6 @@ module.exports = () => {
                         <option value="private">Riêng tư</option>
                     </select>
                 </label><br><br>
-                <input type="hidden" name="created_at" value="${new Date().toISOString()}">
-                <input type="hidden" name="updated_at" value="${new Date().toISOString()}">
                 <button type="submit">Lưu Ghi chú</button>
             </form>
             <br>

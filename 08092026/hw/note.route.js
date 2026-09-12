@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const noteController = require('./note.controller');
 
+router.get('/', (req, res) => res.redirect('/index'));
 router.get('/index', noteController.listNote);
 
 router.get('/add', noteController.showAddForm);

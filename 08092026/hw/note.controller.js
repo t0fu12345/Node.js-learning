@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const NoteModel = require('./note.model');
 const viewList = require('./views/note.view-list');
 const viewAdd = require('./views/note.view-add');
@@ -20,7 +21,9 @@ const showAddForm = (req, res) => {
 
 const addNote = async (req, res) => {
     try {
-        const { title, thumbnail, content, created_at, updated_at, status } = req.body;
+        const { title, thumbnail, content, status } = req.body;
+        const created_at = new Date().toISOString();
+        const updated_at = created_at;
         await NoteModel.create({ title, thumbnail, content, created_at, updated_at, status });
         res.redirect('/index');
     } catch (error) {
@@ -32,6 +35,7 @@ const addNote = async (req, res) => {
 const showEditForm = async (req, res) => {
     try {
         const id = req.params.id;
+        if (!ObjectId.isValid(id)) return res.status(404).send("ID không hợp lệ");
         const note = await NoteModel.getById(id);
         if (note) {
             res.send(viewEdit(note));
@@ -47,8 +51,10 @@ const showEditForm = async (req, res) => {
 const editNote = async (req, res) => {
     try {
         const id = req.params.id;
-        const { title, thumbnail, content, created_at, updated_at, status } = req.body;
-        await NoteModel.update(id, { title, thumbnail, content, created_at, updated_at, status });
+        if (!ObjectId.isValid(id)) return res.status(404).send("ID không hợp lệ");
+        const { title, thumbnail, content, status } = req.body;
+        const updated_at = new Date().toISOString();
+        await NoteModel.update(id, { title, thumbnail, content, updated_at, status });
         res.redirect('/index');
     } catch (error) {
         console.error(error);
@@ -59,6 +65,7 @@ const editNote = async (req, res) => {
 const showDeleteForm = async (req, res) => {
     try {
         const id = req.params.id;
+        if (!ObjectId.isValid(id)) return res.status(404).send("ID không hợp lệ");
         const note = await NoteModel.getById(id);
         if (note) {
             res.send(viewDelete(note));
@@ -74,6 +81,7 @@ const showDeleteForm = async (req, res) => {
 const deleteNote = async (req, res) => {
     try {
         const id = req.params.id;
+        if (!ObjectId.isValid(id)) return res.status(404).send("ID không hợp lệ");
         await NoteModel.delete(id);
         res.redirect('/index');
     } catch (error) {
