@@ -9,9 +9,12 @@ const verifyToken = async (req, res, next) => {
             return res.status(401).json({ message: 'Vui lòng đăng nhập để thực hiện chức năng này' });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret');
+        if (!process.env.JWT_SECRET) {
+            throw new Error("Thiếu signature");
+        }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = await User.findById(decoded.userId).select('-password');
-        
+
         if (!req.user) {
             return res.status(401).json({ message: 'Người dùng không tồn tại' });
         }

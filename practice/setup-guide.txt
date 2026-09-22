@@ -1,0 +1,38 @@
+HƯỚNG DẪN KHỞI TẠO DỰ ÁN NODE.JS (EXPRESS + MONGODB)
+===================================================
+
+Dưới đây là thứ tự các lệnh bạn cần gõ trong Terminal khi bắt đầu làm một dự án hoàn toàn mới:
+
+Bước 1: Khởi tạo dự án (Tạo ra file package.json)
+-------------------------------------------------
+npm init -y
+
+
+Bước 2: Cài đặt các thư viện lõi (Bắt buộc phải có khi code chạy)
+-------------------------------------------------
+npm install express mongoose dotenv bcryptjs jsonwebtoken cookie-parser
+
+Giải thích:
+- express: Xây dựng server và tạo API
+- mongoose: Giao tiếp với database MongoDB
+- dotenv: Đọc biến môi trường từ file .env
+- bcryptjs: Mã hóa mật khẩu an toàn
+- jsonwebtoken: Sinh ra Token để đăng nhập
+- cookie-parser: Đọc Cookie từ trình duyệt
+
+
+Bước 3: Cài đặt thư viện hỗ trợ lúc dev (Không cần thiết khi đưa lên mạng)
+-------------------------------------------------
+npm install --save-dev nodemon
+
+Giải thích:
+- nodemon: Giúp tự động reset lại server mỗi khi bạn bấm Save file code (ctrl+S), thay vì phải gõ lại lệnh node app.js thủ công nhiều lần.
+
+
+Bước 4: Cấu hình package.json để dùng nodemon
+-------------------------------------------------
+Vào file package.json, tìm phần "scripts" và thêm dòng này vào:
+"dev": "nodemon app.js"
+
+Từ giờ, để chạy dự án, bạn chỉ cần gõ lệnh:
+npm run dev
